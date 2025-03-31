@@ -1,22 +1,22 @@
 import java.util.Scanner;  // Import the Scanner class
 
 class Main {
+      // array for the candidates names
+      public static String [] candidates = {"Obama", "Joe", "Trump"};
+      // array to hold the number of votes
+      public static int[] votes = {0, 0, 0};
   public static void main(String[] args) {
-    // array for the candidates names
-    String [] candidates = {"Obama", "Joe", "Trump"};
-    // array to hold the number of votes
-    int[] votes = {0, 0, 0};
-
     //scanner to get the users input
     try (Scanner scanner = new Scanner(System.in)) {
-        // Asking the user who they want to vote for
+
+        //using a while loop to repeat the voting proccess
+        while (true) {
+                  // Asking the user who they want to vote for
         System.out.println("Wich Candidate do you want to vote for:");
         System.out.println("Obama");
         System.out.println("Joe");
         System.out.println("Trump");
-
-        //using a while loop to repeat the voting proccess
-        while (true) {
+      
             // asking the user to input a number to chose an option
             System.out.println("Choose an option");
             System.out.println("1. Vote for a candidate");
@@ -48,18 +48,29 @@ class Main {
         }
     }
   }
+  // Method to vote for a candidate
   public static void CastVote(String candidateName) {
-    for (int i = 0; i < candidates.length; i++){
-        if (candidates{i}).
+    if (candidateName.equals(candidates[0])) {
+        votes[0]++;
+        System.out.println("Vote casted for " + candidates[0]);
+    } else if (candidateName.equals(candidates[1])) {
+        votes[1]++;
+        System.out.println("Vote casted for " + candidates[1]);
+    } else if (candidateName.equals(candidates[2])) {
+        votes[2]++;
+        System.out.println("Vote casted for " + candidates[2]);
+    } else {
+        System.out.println("Invalid candidate name. Please try again.");
     }
-
-  }
+}
+  //method to display the results of the voting
   public static void DisplayResults() {
     System.out.println("Voting Results:");
     for (int i = 0; i < candidates.length; i++) {
         System.out.println(candidates[i] + ": " + votes[i] + " votes");
     }
 }
+// method to reset the voting 
   public static void ResetVotes() {
     for (int i = 0; i < votes.length; i++) {
         votes[i] = 0;
